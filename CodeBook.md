@@ -16,12 +16,12 @@ The following variables can be described more collectively, since they are very 
   
   - The first part of the name contains "Body" or "Gravity": this indicates if the signal corresponds to body or gravity acceleration signal.
   - The following part could be "Acc" or "Gyro": this indicates if the signal is coming from the accelerometer or the gyroscope of the smartphone.
-  - If the suffix "Jerk" is present it indicates that the body linear and angular acceleration have been derived in time during the analysis to obtain Jerk signals.
+  - If the suffix "Jerk" is present it indicates that during the analysis the body linear and angular accelerations have been derived in time to obtain Jerk signals.
   - If the suffix "Mag" is present it indicates that the magnitude of the three-dimensional signals has been calculated during the analysys using the Euclidean norm.
-  - After the dot (.) you find indicated if the signal you are looking at is the mean (mean) or the standard deviation (std) of the signals collected during the study.
+  - After the dot (.) you find indicated if the value you are looking at is the mean (mean) or the mean of the standard deviations (std) of the signals collected during the study or of a quantity calculated from them. These mean values are calculated for each subject and for each different activity, as indicated below.
   - If applicable (that is, the signal has a direction in space), after another dot (.) the direction of space on which the signal has been measured is indicated (X,Y,Z).
 
-2) Second type of signals: an "f" at the beginning on the other hand implies that the signal belongs to the frequency domain.
+2) Second type of signals: an "f" at the beginning of the variable name implies that the signal belongs to the frequency domain.
 
   - Since these signals have been obtained from some of the previous ones by applying the Fast Fourier Transform (FFT) they follow exactly the same nomenclature system described above.
       
