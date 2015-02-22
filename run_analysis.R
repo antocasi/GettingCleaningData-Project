@@ -14,10 +14,10 @@ sub_train <- read.table("./train/subject_train.txt", header= FALSE, col.names=c(
 features <- read.table("./features.txt", header=FALSE, colClasses= c("NULL", "character"))
 # The import of all necessary data is completed after the last step
 
-colnames(test_data) <- make.names(features[,1])
-colnames(train_data) <- make.names(features[,1])
+colnames(test_data) <- features[,1]
+colnames(train_data) <- features[,1]
 # The variable names for the train and test datasets are taken from the features.txt 
-# file contained in the original dataset. Names tidied using the make.names fuction
+# file contained in the original dataset
 
 data <- rbind(train_data,test_data)
 # Bind together the two datasets
@@ -31,8 +31,11 @@ data_final <- cbind(sub_all, act_all, data)
 data_final$Activity <- factor(data_final$Activity, labels = c("Walking", "Walking.Upstairs",
                                 "Walking.Downstairs", "Sitting", "Standing", "Laying"))
 # Re-name the activities with descriptive names
-tidy <- data_final[,c(1:8,43:48,83:88,123:128,163:168,203,204,216,217,229,230,242,243,
-                       255,256,268:273,347:352,426:431,505,506,518,519,531,532,544,545)]
+
+
+tidy <- data_final[,grep("Subject|Activity|mean()|std()",colnames(data_final))]
+tidy <- tidy[,-grep("meanFreq", colnames(tidy))]
+colnames(tidy) <- make.names(colnames(tidy))
 tidy <- arrange(tidy, Subject, Activity)
 # Extract the variables relavite to mean and std for each kind of measurement 
 # and rearrange them according to Subject and Activity
@@ -42,4 +45,8 @@ final <- dcast(melted, Subject + Activity ~ variable, mean)
 # Calculating the final tidy dataset with the means of each variable and sorting
 # according to Subject and Activity
 
+
+
+tidy <- data_final[,grep("Subject|Activity|mean()|std()",colnames(data_final))]
+tidy <- tidy[,-grep("meanFreq", colnames(tidy))]
 
