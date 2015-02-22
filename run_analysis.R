@@ -41,7 +41,7 @@ colnames(tidy) <- gsub("().Y", ".Y", colnames(tidy), fixed = TRUE)
 colnames(tidy) <- gsub("().Z", ".Z", colnames(tidy), fixed = TRUE)
 tidy <- arrange(tidy, Subject, Activity)
 # Extract the variables relavite to mean and std for each kind of measurement 
-# and rearrange them according to Subject and Activity
+# and rearrange them according to Subject and Activity. Tidy variable names.
 
 melted <- melt(tidy, id.vars=c("Subject", "Activity"))
 final <- dcast(melted, Subject + Activity ~ variable, mean)
