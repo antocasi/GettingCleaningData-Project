@@ -44,9 +44,3 @@ melted <- melt(tidy, id.vars=c("Subject", "Activity"))
 final <- dcast(melted, Subject + Activity ~ variable, mean)
 # Calculating the final tidy dataset with the means of each variable and sorting
 # according to Subject and Activity
-
-
-
-tidy <- data_final[,grep("Subject|Activity|mean()|std()",colnames(data_final))]
-tidy <- tidy[,-grep("meanFreq", colnames(tidy))]
-
