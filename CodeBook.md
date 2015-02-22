@@ -8,8 +8,13 @@ For more detailed information on the dataset and ho data were collected visit: h
 # Data transformations
 The original dataset was split in two groups: a train group and a test group. Each of the two datasets (containing the processed measurements coming from the smartphone sensors) is accompanied by two additional data files containing the activity labels for each measurement and the list of subjects performing each of the measurements.
 The following transformations have been applied to the orginal datasets:
+
 1) All the datasets have been merged in one big dataset containing both the train and the test measurement, along with the corresponding activity and subject labels.
+
 2) The variable names have been appended to the obtained dataframe.
+
 3) The activity labels, initially indicated as numbers, have been substituted with descriptive names according to the conversion table available in the original dataset.
+
 3) A second data frame containing data only on the mean and the standard deviation of each of the measured variables has been extracted from the merged dataset. This latter dataframe has been ordered accordin to the Subject and Activity variables.
+
 4) The final tidy dataset is obtained by calculating the mean of each of the selected variables for each Activity and for each Subject.
