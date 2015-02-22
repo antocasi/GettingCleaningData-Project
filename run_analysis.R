@@ -36,6 +36,7 @@ data_final$Activity <- factor(data_final$Activity, labels = c("Walking", "Walkin
 tidy <- data_final[,grep("Subject|Activity|mean()|std()",colnames(data_final))]
 tidy <- tidy[,-grep("meanFreq", colnames(tidy))]
 colnames(tidy) <- gsub("-", ".", colnames(tidy))
+colnames(tidy) <- gsub("()", "", colnames(tidy), fixed = TRUE)
 colnames(tidy) <- gsub("().X", ".X", colnames(tidy), fixed = TRUE)
 colnames(tidy) <- gsub("().Y", ".Y", colnames(tidy), fixed = TRUE)
 colnames(tidy) <- gsub("().Z", ".Z", colnames(tidy), fixed = TRUE)
